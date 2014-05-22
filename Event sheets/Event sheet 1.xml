@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="1884633458437735">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="901314824136697" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="8777286280064521" type="Player">
+                    <param id="0" name="Object">PlayerBox</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5803545418794854">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="3261436992411174" type="Keyboard">
+                    <param id="0" name="Key">37 (Left arrow)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="2186778184250814" type="Player">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8440284650762204">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="457547417468533" type="Keyboard">
+                    <param id="0" name="Key">39 (Right arrow)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="3944566888386474" type="Player">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="543588185475602">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2601894956958904" type="PlayerBox">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3681698126161509">
+                    <conditions>
+                        <condition behavior="Platform" id="4" name="Is falling" sid="9763691720567532" type="PlayerBox" />
+                        <condition id="-2" name="Compare Y" sid="3962862283514681" type="PlayerBox">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">Enemy.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="3620397560654699" type="Enemy" />
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="8231874418620979" type="PlayerBox">
+                            <param id="0" name="Vector Y">-600</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5489107027863779">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="7534430522162246" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Flash" id="0" name="Flash" sid="8730726085695062" type="Player">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7087843077821548">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="6908723610722019" type="Enemy">
+                    <param id="0" name="Instance variable">action</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;right&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="8533485215938074" type="Enemy">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3204192194566992">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="8173392588006233" type="Enemy">
+                    <param id="0" name="Instance variable">action</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;left&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="9381174726672916" type="Enemy">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6393054709250381">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9378792246189546" type="Enemy">
+                    <param id="0" name="Object">EdgeMarker</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3510905499940219">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8993131635557325" type="Enemy">
+                            <param id="0" name="Instance variable">action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;right&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="1075179989312268" type="Enemy">
+                            <param id="0" name="Instance variable">action</param>
+                            <param id="1" name="Value">&quot;left&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8866694635071492">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="6922287445855231" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="3714868505709451" type="Enemy">
+                            <param id="0" name="Instance variable">action</param>
+                            <param id="1" name="Value">&quot;right&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7286027124476227">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="1766810507822369" type="System" />
+            </conditions>
+            <actions>
+                <action id="-17" name="Move forward" sid="4057940667769801" type="Enemy3">
+                    <param id="0" name="Distance">5</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

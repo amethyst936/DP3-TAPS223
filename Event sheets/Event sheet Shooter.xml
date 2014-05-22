@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet Shooter</name>
+    <events>
+        <event-block sid="8906659903038112">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="499538993240421" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="8900373765940432" type="player2">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9592544520227028">
+            <conditions>
+                <condition id="0" name="On click" sid="3885427358302965" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="8100234673070399" type="player2">
+                    <param id="0" name="Object">Bullet2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8645347130941789">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="4181780600032106" type="Bullet2">
+                    <param id="0" name="Object">monster2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4887262310267667" type="monster2" />
+                <action id="0" name="Spawn another object" sid="1969362324591823" type="Bullet2">
+                    <param id="0" name="Object">explode2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="9433063935692162" type="Bullet2" />
+            </actions>
+        </event-block>
+        <event-block sid="7439110908416946">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="521097816003202" type="monster2" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="8749737771007158" type="monster2">
+                    <param id="0" name="X">player2.X</param>
+                    <param id="1" name="Y">player2.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4170389212975973">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4134438932887999" type="System" />
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="5036950457335005" type="monster2">
+                    <param id="0" name="Angle">random(360)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9763668555446599">
+            <conditions />
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>
