@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet Welcome Screen</name>
+    <events>
+        <event-block sid="1191304643506763">
+            <conditions>
+                <condition id="3" name="On touched object" sid="1840156049630736" type="Touch">
+                    <param id="0" name="Object">StartButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="5639175984897751" type="System">
+                    <param id="0" name="Layout">&quot;Shooter&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

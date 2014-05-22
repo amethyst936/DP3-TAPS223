@@ -10,10 +10,14 @@
     <unique-id>1snsdo3zr66cz</unique-id>
     <saved-with-version>16800</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -35,6 +39,7 @@
         <height>800</height>
     </window-size>
     <pixel-rounding>1</pixel-rounding>
+    <first-layout>Welcome Screen</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -926,6 +931,9 @@
         </object-type>
         <object-type name="monster2" sid="6052328668177535">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="health" sid="4663514921670657" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet" sid="3349262747388198">
                     <behavior id="Bullet" />
@@ -988,19 +996,57 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="TextBox" sid="2170436765852728">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="Text" sid="4521143253192442">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Button" sid="7830637503090763">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="StartButton" sid="4031386846154575">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6691228648133034" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.146667" y="0.146667" />
+                            <point x="0.5" y="0" />
+                            <point x="0.853333" y="0.146667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.853333" y="0.853333" />
+                            <point x="0.5" y="1" />
+                            <point x="0.146667" y="0.853333" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="2713857044619218">
+            <plugin id="Touch" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder expanded="1">
-        <layout>Layout 1.xml</layout>
+        <layout>Platformer.xml</layout>
         <layout>Shooter.xml</layout>
+        <layout>Welcome Screen.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Event sheet Platformer.xml</event-sheet>
         <event-sheet>Event sheet Shooter.xml</event-sheet>
+        <event-sheet>Event sheet Welcome Screen.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="27" />
         <global-instance type="Mouse" uid="38" />
+        <global-instance type="Touch" uid="53">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder expanded="1" />
     <music-folder expanded="1" />

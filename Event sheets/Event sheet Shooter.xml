@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet Shooter</name>
     <events>
+        <variable constant="0" name="Score" sid="6168910438178833" static="0" type="number">0</variable>
         <event-block sid="8906659903038112">
             <conditions>
                 <condition id="-1" name="Every tick" sid="499538993240421" type="System" />
@@ -11,6 +12,9 @@
                 <action id="-22" name="Set angle toward position" sid="8900373765940432" type="player2">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
+                </action>
+                <action id="0" name="Set text" sid="758606718998023" type="TextBox">
+                    <param id="0" name="Text">&quot;Score:&quot; &amp; Score</param>
                 </action>
             </actions>
         </event-block>
@@ -36,7 +40,10 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Destroy" sid="4887262310267667" type="monster2" />
+                <action id="-12" name="Subtract from" sid="4887262310267667" type="monster2">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Value">1</param>
+                </action>
                 <action id="0" name="Spawn another object" sid="1969362324591823" type="Bullet2">
                     <param id="0" name="Object">explode2</param>
                     <param id="1" name="Layer">1</param>
@@ -66,9 +73,73 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="9763668555446599">
-            <conditions />
-            <actions />
+        <event-block sid="8020348815243612">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="8224177794016041" type="monster2">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2112133035652291" type="monster2">
+                    <param id="0" name="Object">explode2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="8854245596143878" type="monster2" />
+                <action id="-10" name="Add to" sid="4890132785513913" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5535738055718151">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="5419017806484298" type="System">
+                    <param id="0" name="Interval (seconds)">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="6672692482346029" type="System">
+                    <param id="0" name="Object to create">monster2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">1000</param>
+                    <param id="3" name="Y">random(960)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8634066172425037">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="6877802898779268" type="monster2">
+                    <param id="0" name="Object">player2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="3770865815008394" type="player2" />
+            </actions>
+        </event-block>
+        <event-block sid="9363138976500077">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="4467067955663133" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">20</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="954762930304901" type="System">
+                    <param id="0" name="Layout">&quot;Platformer&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4327137199627661">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="9963504221949609" type="player2" />
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="3981515434658821" type="System" />
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
